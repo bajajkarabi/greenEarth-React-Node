@@ -74,7 +74,8 @@ class Landing extends Component {
             />
           ))}
         </Map>
-        {resData()}
+        <div>{resData()}</div>
+        
       </>
     );
   }
