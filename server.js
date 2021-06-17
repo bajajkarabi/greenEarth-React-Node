@@ -24,8 +24,8 @@ app.use(function (req, res, next) {
 
 let getData = () => {
   axios
-    .get('/aqi')
-    .then((res) => console.log(res.data))
+    .post('/aqi')
+    .then((req) => console.log(req.data))
     .catch((err) => console.log(err.data));
 };
 
