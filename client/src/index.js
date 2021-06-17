@@ -11,9 +11,9 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <Router>
-    <Link to="/"></Link>
+    {/* <Link to="/"></Link> */}
     <Switch>
-    <Route path="/">
+    <Route exact path="/">
             <App />
     </Route>
     </Switch>
