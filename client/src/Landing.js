@@ -9,8 +9,8 @@ class Landing extends Component {
       markers: [
         {
           title: 'The marker`s title will appear as a tooltip.',
-          name: 'Arnab',
-          position: { lat: 22.5726, lng: 88.3639 },
+          name: 'Mumbai',
+          position: { lat: 19.0760, lng: 72.8777 },
         },
       ],
     };
@@ -21,24 +21,18 @@ class Landing extends Component {
 
   onClick(t, map, coord) {
     //const histData = JSON.parse(jData);
-    const serverUrl = '/aqi';
+   
     const { latLng } = coord;
     const lat = latLng.lat();
     const lng = latLng.lng();
-    const appid = '10c584214fe0d93a45fbc65300db142a';
+    
     console.log(lat);
     console.log(lng);
-    let url = `https://api.openweathermap.org/data/2.5/air_pollution?lon=${lng}&lat=${lat}&appid=${appid}`;
-    // axios.get(url).then((res) => {
-    fetch(url).then((res) => {
-      console.log(res.data);
-      axios.post('/aqi', res.data).then((response) => {
-        console.log('Res delegated', res.data);
-        console.log('Response From Node Server', response);
+    let url = `https://greenearth-node.herokuapp.com/`+lat+`/`+lng;
+    console.log("URL : ", url);
+    axios.get(url).then((res) => {
+        console.log('Response From Node Server', res.body);
       });
-    });
-
-    // });
 
     this.setState((previousState) => {
       return {
