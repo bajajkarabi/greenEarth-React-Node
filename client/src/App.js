@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -36,17 +37,6 @@ class App extends Component {
         console.log('Response From Node Server', response);
       });
 
-      //   console.log(JSON.stringify(res.data));
-      //   responseData = JSON.stringify(res.data);
-      //   let jsonObj = JSON.parse(responseData);
-      //   console.log('Invoking Node Server.');
-      //   console.log('Node Invoked', jsonObj);
-      // })
-      // .then((jsonObj) => {
-      //   axios.post('/aqi', jsonObj).then((response) => {
-      //     console.log('Res delegated', jsonObj);
-      //     console.log('Response From Node Server', response);
-      //   });
     });
 
     this.setState((previousState) => {
