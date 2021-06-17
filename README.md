@@ -27,7 +27,7 @@ Air pollution refers to the release of pollutants into the air that are detrimen
 Technology will help us to analyse and determine the problem factors and provide solutions to combat them. Some of these are - Automotives, Air Purification, Smog Free Towers, Artificial Trees, Air Purifiers etc.
 
 ### The idea
-
+The idea is to use IoT integration to pull the air quality index through connecting devices and innovation by integrating technologies to create a healthier society for tomorrow.
 
 ## The architecture
 
@@ -37,8 +37,11 @@ Technology will help us to analyse and determine the problem factors and provide
 
 ## Project roadmap
 
-The main objective of this project is to determine the air pollution depending on the air quality index for any geographical location.
+- The main objective of this project is to determine the air pollution depending on the air quality index for any geographical location.
 
+- After identifying the air pollution for particular location, we can state remedies to reduce the same.
+
+- Identifying greeneries of any geographical locations and thus determining requirement of plantation of trees.
 
 
 ## Getting started
