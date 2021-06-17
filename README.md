@@ -10,11 +10,10 @@
   - [Long description](#long-description)
   - [Project roadmap](#project-roadmap)
   - [Approach](#approach)
-  - [Integration] (#integration)
-  - [Getting started] (#getting-started)
-  - [Suggestions] (#suggestions)
+  - [Integration](#integration)
+  - [Getting started](#getting-started)
+  - [Suggestions](#suggestions)
   - [Authors](#authors)
-  - [License](#license)
   - [Acknowledgments](#acknowledgments)
 
 ## Short description
@@ -28,7 +27,7 @@ Air pollution refers to the release of pollutants into the air that are detrimen
 Technology will help us to analyse and determine the problem factors and provide solutions to combat them. Some of these are - Automotives, Air Purification, Smog Free Towers, Artificial Trees, Air Purifiers etc.
 
 ### The idea
-The idea is to use IoT integration to pull the air quality index through connecting devices and innovation by integrating technologies to create a healthier society for tomorrow.
+The idea is to use IoT integration to pull the air quality index through cloud service functions and store them in cloud storage for current and future data analysis. Cognitive devices will read these data and based on that we can device technologies to create a healthier society for tomorrow.
 
 ## The architecture
 
@@ -90,9 +89,9 @@ The idea is to use IoT integration to pull the air quality index through connect
 
 ## Acknowledgments
 
-- [React] (https://reactjs.org/)
-- [HTML] (https://html.com/)
-- [Python] (https://www.python.org/)
-- [Heroku] (https://www.heroku.com/)
-- [nodejs] (https://nodejs.org/)
-- [Google cloud API] (https://cloud.google.com/apis)
+- [React](https://reactjs.org/)
+- [HTML](https://html.com/)
+- [Python](https://www.python.org/)
+- [Heroku](https://www.heroku.com/)
+- [nodejs](https://nodejs.org/)
+- [Google cloud API](https://cloud.google.com/apis)
