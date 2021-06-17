@@ -30,7 +30,7 @@ class Landing extends Component {
     console.log(lng);
     let url = `https://api.openweathermap.org/data/2.5/air_pollution?lon=${lng}&lat=${lat}&appid=${appid}`;
     axios.get(url).then((res) => {
-      console.log(res.data);
+      //console.log(res.data);
       axios.post('/aqi', res.data).then((response) => {
         console.log('Res delegated', res.data);
         console.log('Response From Node Server', response);

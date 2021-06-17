@@ -22,14 +22,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.get('/aqi', (req, res) => {
-  let url = '/aqi';
-  axios({
-    method: 'get',
-    url,
-  }).then((res) => console.log(res.data));
-});
-
 let getData = () => {
   axios
     .get('/aqi')
