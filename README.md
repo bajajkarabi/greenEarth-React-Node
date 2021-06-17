@@ -31,6 +31,7 @@ Technology will help us to analyse and determine the problem factors and provide
 The idea is to use IoT integration to pull the air quality index through connecting devices and innovation by integrating technologies to create a healthier society for tomorrow.
 
 ## The architecture
+
 ![Architecture](./images/architecture_diagram.jpg)
 
 ## Long description
@@ -40,7 +41,7 @@ The idea is to use IoT integration to pull the air quality index through connect
 
 ## Project roadmap
 
-![Roadmap](./images/roadmap.png)
+![Roadmap](./images/roadmap.jpg)
 
 - The main objective of this project is to determine the air pollution depending on the air quality index for any geographical location.  
 
