@@ -31,7 +31,7 @@ app.get('/search', function (req, res) {
   let lat = '46.8182';
   let lon = '8.2275';
   let appid = '10c584214fe0d93a45fbc65300db142a',
-    url = `http://api.openweathermap.org/data/2.5/air_pollution?lon=${lon}&lat=${lat}&appid=${appid}`;
+    url = `https://api.openweathermap.org/data/2.5/air_pollution?lon=${lon}&lat=${lat}&appid=${appid}`;
 
   axios({
     method: 'get',
