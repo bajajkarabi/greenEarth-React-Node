@@ -21,7 +21,7 @@ class App extends Component {
 
   onClick(t, map, coord) {
     //const histData = JSON.parse(jData);
-    const serverUrl = 'http://localhost:5678/aqi';
+    const serverUrl = '/aqi';
     const { latLng } = coord;
     const lat = latLng.lat();
     const lng = latLng.lng();

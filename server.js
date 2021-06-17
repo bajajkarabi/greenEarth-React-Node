@@ -32,14 +32,6 @@ app.use(function (req, res, next) {
 
 //console.log(obj);
 app.post('/aqi', (req, res) => {
-  // res.setHeader('Access-Control-Allow-Origin', '*');
-  // res.setHeader('Access-Control-Allow-Credentials', 'true');
-  // res.setHeader('Access-Control-Max-Age', '1800');
-  // res.setHeader('Access-Control-Allow-Headers', 'content-type');
-  // res.setHeader(
-  //   'Access-Control-Allow-Methods',
-  //   'PUT, POST, GET, DELETE, PATCH, OPTIONS'
-  // );
   console.log(req.body);
 });
 
@@ -101,6 +93,6 @@ app.get('/search', function (req, res) {
     });
 });
 
-const port = 5678;
+let port = process.env.PORT || 5678;
 var server = app.listen(port);
 console.log('server on : ' + port);
