@@ -2,6 +2,9 @@ const express = require("express");
 const axios = require('axios');
 const cors = require('cors');
 
+//import config
+const configFile = require('./config.json');
+
 app = express();
 app.use(express.json());
 
@@ -22,11 +25,14 @@ let port = process.env.PORT || 9000;
 app.listen(port);
 console.log('listening on ' + port);
 
+app.use(cors());
+const corsOptions = {
+    origin: "https://greenearth-node.herokuapp.com"
+};
 
-
-/**  Process Jsondata
- *      - parse JSON data and populate the csv format
- *      - Upload to Objext storage
+/**
+ * - parse JSON data and populate the csv format
+ * - Upload to Objext storage
  */
 function process(jsonData) {
 
@@ -44,7 +50,7 @@ function process(jsonData) {
     });
 
 }
-//Invoke AQI GET API 
+//Invoke AQI API 
 const sendGetRequest = async (url) => {
     try {
         const resp = await axios.get(url);
@@ -55,12 +61,11 @@ const sendGetRequest = async (url) => {
 };
 
 
-//Health check API
-app.get('/', function (req, res) {
+
+app.get('/', cors(corsOptions), function (req, res) {
 
     res.send({ status: 'ok' });
 });
-
 
 
 /** 
@@ -71,20 +76,19 @@ app.get('/', function (req, res) {
  */
 
 
-app.get('/:lat/:lon', function (req, res) {
+app.get('/:lat/:lon', cors(corsOptions), function (req, res) {
 
     let location = 'latitude : ' + req.params.lat + 'longitude : ' + req.params.lon;
     console.log(location);
 
-    let AQI_URL = 'http://api.openweathermap.org/data/2.5/air_pollution?lon=' + req.params.lon + '&lat=' + req.params.lat + '&appid=10c584214fe0d93a45fbc65300db142a';
-    let PYTHON_API = 'https://hackathon-2021-greenearth.herokuapp.com/' + location
-
+    let AQI_URL = 'http://api.openweathermap.org/data/2.5/air_pollution?lon=' + req.params.lon + '&lat=' + req.params.lat + '&appid='+configFile.API_KEY;
+    
     sendGetRequest(AQI_URL).then(function (jsonData) {
         console.log("[sendGetRequest] response ", jsonData);
         process(jsonData).then(function (isFileUploaded) {
             console.log("isFileUploaded ? ", isFileUploaded);
             if (isFileUploaded)
-                res.redirect(PYTHON_API);
+                res.redirect(configFile.PYTHON_API_URL+location);
             else res.send({ "Status": "Failed" });
         });
     }).catch(function (error) {

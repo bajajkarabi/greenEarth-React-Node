@@ -1,4 +1,6 @@
 {
+  "API_KEY" : "10c584214fe0d93a45fbc65300db142a",
+  "PYTHON_API_URL" : "https://hackathon-2021-greenearth.herokuapp.com/",
   "endpoint": "s3.jp-tok.cloud-object-storage.appdomain.cloud",
   "apiKeyId": "Z5ciouHcuqTA2cQY19ke4Ni0RPkWhp23MBzMTwWwk-e7",
   "serviceInstanceId": "crn:v1:bluemix:public:cloud-object-storage:global:a/81a51fa20992fae6610bfafb23491dae:2c5cf8df-3e29-4625-988c-e4719f6248b6::"
