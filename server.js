@@ -93,6 +93,16 @@ app.get('/search', function (req, res) {
     });
 });
 
+if (process.env.NODE_ENV === 'production') {
+  //Express will server prod asset..
+  app.use(express.static('client/build'));
+  //express will serve up the app.js file if it does not recon the route
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
+
 let port = process.env.PORT || 5678;
 var server = app.listen(port);
 console.log('server on : ' + port);
