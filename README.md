@@ -9,9 +9,10 @@
   - [The architecture](#the-architecture)
   - [Long description](#long-description)
   - [Project roadmap](#project-roadmap)
-  - [Built with](#built-with)
-  - [Contributing](#contributing)
-  - [Versioning](#versioning)
+  - [Approach](#approach)
+  - [Integration] (#integration)
+  - [Getting started] (#getting-started)
+  - [Suggestions] (#suggestions)
   - [Authors](#authors)
   - [License](#license)
   - [Acknowledgments](#acknowledgments)
@@ -43,26 +44,50 @@ The idea is to use IoT integration to pull the air quality index through connect
 
 - Identifying greeneries of any geographical locations and thus determining requirement of plantation of trees.
 
+## Approach : 
+
+- (Open-Source ) Technologies Used :
+# Middleware
+	NodeJS 
+	Python 
+# Data Storage
+	Object Storage (s3)
+# Machine Learning analysis
+	Python
+# Deployment
+	Heroku  
+
+## Node JS Modules used :
+## Python Modules used :
+​
+## Microservices Details :
+1. Node JS 
+2. Python
+​
+## Integration
+<TODO> 
+
+
 
 ## Getting started
 
-In this section you add the instructions to run your project on your local machine for development and testing purposes. You can also add instructions on how to deploy the project in production.
+<In this section you add the instructions to run your project on your local machine for development and testing purposes. You can also add instructions on how to deploy the project in production>
 
 - [react-app](./https://github.com/bajajkarabi/greenEarth-React-Node)
 
-## Built with
-
-- [React] (https://reactjs.org/)
-- [HTML] (https://html.com/)
-- [Python] (https://www.python.org/)
-- [Heroku] (https://www.heroku.com/)
+## Suggestions on how to take the idea in other directions: 
+<todo>
 
 ## Authors
 - **Karabi Bajaj**  - https://github.com/bajajkarabi
 - **Arnab Chaterjee**  - https://github.com/arnabchat123
 - **Sudipto Dasgupta** 
 
-
-
 ## Acknowledgments
 
+- [React] (https://reactjs.org/)
+- [HTML] (https://html.com/)
+- [Python] (https://www.python.org/)
+- [Heroku] (https://www.heroku.com/)
+- [nodejs] (https://nodejs.org/)
+- [Google cloud API] (https://cloud.google.com/apis)
