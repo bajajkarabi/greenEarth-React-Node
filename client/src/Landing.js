@@ -10,7 +10,7 @@ class Landing extends Component {
         {
           title: 'The marker`s title will appear as a tooltip.',
           name: 'Mumbai',
-          position: { lat: 19.0760, lng: 72.8777 },
+          position: { lat: 19.076, lng: 72.8777 },
         },
       ],
     };
@@ -21,18 +21,18 @@ class Landing extends Component {
 
   onClick(t, map, coord) {
     //const histData = JSON.parse(jData);
-   
+
     const { latLng } = coord;
     const lat = latLng.lat();
     const lng = latLng.lng();
-    
+
     console.log(lat);
     console.log(lng);
-    let url = `https://greenearth-node.herokuapp.com/`+lat+`/`+lng;
-    console.log("URL : ", url);
+    let url = `https://greenearth-node.herokuapp.com/` + lat + `/` + lng;
+    console.log('URL : ', url);
     axios.get(url).then((res) => {
-        console.log('Response From Node Server', res.body);
-      });
+      console.log('Response From Node Server', res.data);
+    });
 
     this.setState((previousState) => {
       return {
