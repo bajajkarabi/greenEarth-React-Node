@@ -2,17 +2,9 @@ const axios = require('axios');
 const express = require('express');
 const getMaxId = require('./jsonData');
 const cors = require('cors');
-//const jsonData = require('./jsonData');
+
 const fs = require('fs');
 const app = express();
-
-// const corsOptions = {
-//   origin: 'http://localhost:3000',
-//   credentials: true, //access-control-allow-credentials:true
-//   optionSuccessStatus: 200,
-// };
-// app.use(cors(corsOptions));
-// const port = process.env.PORT || 5000;
 
 var jData = fs.readFileSync('jsonfile.json');
 var histData = JSON.parse(jData);
@@ -30,7 +22,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-//console.log(obj);
 app.post('/aqi', (req, res) => {
   console.log(req.body);
 });
@@ -41,18 +32,13 @@ app.get('/search', function (req, res) {
   let lon = '8.2275';
   let appid = '10c584214fe0d93a45fbc65300db142a',
     url = `http://api.openweathermap.org/data/2.5/air_pollution?lon=${lon}&lat=${lat}&appid=${appid}`;
-  //&lon=${lon}&appid=${appid}
 
-  //lat=22.5726&lon=88.36398&appid=10c584214fe0d93a45fbc65300db142a
   axios({
     method: 'get',
     url,
     headers: {
       Authorization: appid,
     },
-    // auth: {
-    //   appid: '10c584214fe0d93a45fbc65300db142a',
-    // },
   })
     .then(function (response) {
       responseData = JSON.stringify(response.data);
