@@ -15,31 +15,25 @@ app.use(function (req, res, next) {
 });
 
 var objectStore = require('./objectStorage');
-const { stat } = require("fs");
 
 /******************************************/
-const port = 9000;
+
+let port = process.env.PORT || 9000;
+app.listen(port);
 console.log('listening on ' + port);
 
-app.listen(port);
 
-/** 
- * 1. Invoke AQI API 
- * 2. populate CSV data 
- * 3. Upload to Objext storage
- * 4. Invoke Python API for graphical display
+
+/**  Process Jsondata
+ *      - parse JSON data and populate the csv format
+ *      - Upload to Objext storage
  */
-
-
-
 function process(jsonData) {
 
     return new Promise(function (resolve, reject) {
-        //parse JSON data and populate the csv format 
-
-
-
+       
         let csvData = JSON.stringify(jsonData);
+ 
         objectStore.uploadCSV(csvData).then(function (status) {
             return resolve(status);
         }).catch(function (error) {
@@ -50,7 +44,7 @@ function process(jsonData) {
     });
 
 }
-
+//Invoke AQI GET API 
 const sendGetRequest = async (url) => {
     try {
         const resp = await axios.get(url);
@@ -61,46 +55,20 @@ const sendGetRequest = async (url) => {
 };
 
 
+//Health check API
+app.get('/', function (req, res) {
 
-
-function getAPIResponse(url) {
-    axios({
-        method: 'get',
-        url
-    }).then(function (response) {
-
-        let csvData = JSON.stringify(response.data);
-        console.log(">>>>>", csvData);
-        writeFileOS(csvData);
-
-        //3. Upload to Objext storage
-        objectStore.uploadCSV(csvData);
-        let pyUrl = 'https://hackathon-2021-greenearth.herokuapp.com/kolkata';
-        console.log("pyUrl", pyUrl);
-        //4. invoke PythonApi 
-        axios({
-            method: 'get',
-            pyUrl,
-        }).then(function (res) {
-            cosnsole.log("Res from python ==> ", res);
-        });
-    }).catch(function (error) {
-        console.log(error);
-    });
-
-
-}
-
-app.get('/Hello/:lat/:lon', function (req, res) {
-
-    let latitude = req.params.lat;
-    let longitude = req.params.lon;
-    console.log(latitude, longitude);
-    var AQI_URL = 'http://api.openweathermap.org/data/2.5/air_pollution?lon=' + longitude + '&lat=' + latitude + '&appid=10c584214fe0d93a45fbc65300db142a';
-    console.log(AQI_URL);
-    res.send(AQI_URL);
+    res.send({ status: 'ok' });
 });
 
+
+
+/** 
+ * 1. Invoke AQI API 
+ * 2. populate CSV data 
+ * 3. Upload to Objext storage
+ * 4. Invoke Python API for graphical display
+ */
 
 
 app.get('/:lat/:lon', function (req, res) {
