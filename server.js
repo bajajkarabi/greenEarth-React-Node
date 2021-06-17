@@ -1,4 +1,4 @@
-var environment = process.env.NODE_ENV || 'development';
+
 
 const axios = require('axios');
 const express = require('express');
