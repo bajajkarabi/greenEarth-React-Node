@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+### CONTENTS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Project name](#submission-or-project-name)
+  - [Contents](#contents)
+  - [Short description](#short-description)
+    - [What's the problem?](#whats-the-problem)
+    - [How can technology help?](#how-can-technology-help)
+    - [The idea](#the-idea)
+  - [The architecture](#the-architecture)
+  - [Long description](#long-description)
+  - [Project roadmap](#project-roadmap)
+  - [Built with](#built-with)
+  - [Contributing](#contributing)
+  - [Versioning](#versioning)
+  - [Authors](#authors)
+  - [License](#license)
+  - [Acknowledgments](#acknowledgments)
 
-## Available Scripts
+## Short description
 
-In the project directory, you can run:
+### What's the problem?
 
-### `npm start`
+Air pollution refers to the release of pollutants into the air that are detrimental to human health and the planet as a whole. Around the world, nine out of 10 people breathe unhealthy air. Air pollution is now the biggest environmental risk for early death, responsible for more than 6 million premature deaths each year from heart attacks, strokes, diabetes and respiratory diseases. That’s more than the deaths from AIDS, tuberculosis and malaria combined.Research suggests that long term exposure to some pollutants increases the risk of emphysema more than smoking a pack of cigarettes a day. And recent studies show air pollution can impact mental health, worker productivity and even stock market performance.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### How can technology help?
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Technology will help us to analyse and determine the problem factors and provide solutions to combat them. Some of these are - Automotives, Air Purification, Smog Free Towers, Artificial Trees, Air Purifiers etc.
 
-### `npm test`
+### The idea
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## The architecture
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Long description
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Project roadmap
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The main objective of this project is to determine the air pollution depending on the air quality index for any geographical location.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Getting started
 
-## Learn More
+In this section you add the instructions to run your project on your local machine for development and testing purposes. You can also add instructions on how to deploy the project in production.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [react-app](./https://github.com/bajajkarabi/greenEarth-React-Node)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Built with
 
-### Code Splitting
+- [React] (https://reactjs.org/)
+- [HTML] (https://html.com/)
+- [Python] (https://www.python.org/)
+- [Heroku] (https://www.heroku.com/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Authors
+- **Karabi Bajaj**  - https://github.com/bajajkarabi
+- **Arnab Chaterjee**  - https://github.com/arnabchat123
+- **Sudipto Dasgupta** 
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
