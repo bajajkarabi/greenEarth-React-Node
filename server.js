@@ -6,6 +6,10 @@ const cors = require('cors');
 const fs = require('fs');
 const app = express();
 
+//import config
+const configFile = require('./config.json');
+var objectStore = require('./objectStorage');
+
 var jData = fs.readFileSync('jsonfile.json');
 var histData = JSON.parse(jData);
 
@@ -83,6 +87,66 @@ app.get('/search', function (req, res) {
     })
     .catch(function (error) {
       console.log(error);
+    });
+});
+
+
+
+/**
+ * - parse JSON data and populate the csv format
+ * - Upload to Objext storage
+ */
+function process(jsonData) {
+
+    return new Promise(function (resolve, reject) {
+
+        let csvData = JSON.stringify(jsonData);
+
+        objectStore.uploadCSV(csvData).then(function (status) {
+            return resolve(status);
+        }).catch(function (error) {
+            console.log("[process] Failed due to => ", error);
+            return reject(error);
+        });
+
+    });
+
+}
+//Invoke AQI API 
+const sendGetRequest = async (url) => {
+    try {
+        const resp = await axios.get(url);
+        return resp.data;
+    } catch (err) {
+        console.error(err);
+    }
+};
+/** 
+ * 1. Invoke AQI API 
+ * 2. populate CSV data 
+ * 3. Upload to Objext storage
+ * 4. Invoke Python API for graphical display
+ */
+
+
+app.get('/:lat/:lon', function (req, res) {
+
+    let location = 'latitude : ' + req.params.lat + 'longitude : ' + req.params.lon;
+    console.log(location);
+
+    let AQI_URL = 'http://api.openweathermap.org/data/2.5/air_pollution?lon=' + req.params.lon + '&lat=' + req.params.lat + '&appid=' + configFile.API_KEY;
+
+    sendGetRequest(AQI_URL).then(function (jsonData) {
+        console.log("[sendGetRequest] response ", jsonData);
+        process(jsonData).then(function (isFileUploaded) {
+            console.log("isFileUploaded ? ", isFileUploaded);
+            if (isFileUploaded)
+                res.redirect(configFile.PYTHON_API_URL + location);
+            else res.send({ "Status": "Failed" });
+        });
+    }).catch(function (error) {
+        console.log("[sendGetRequest] Err due to :::", error);
+        res.send({ "Status": "Failed" });
     });
 });
 
