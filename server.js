@@ -22,9 +22,16 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.post('/aqi', (req, res) => {
-  console.log(req.body);
-});
+let getData = () => {
+  axios
+    .get('/aqi')
+    .then((res) => console.log(res.data))
+    .catch((err) => console.log(err.data));
+};
+
+// app.post('/aqi', (req, res) => {
+//   console.log(req.body);
+// });
 
 app.get('/search', function (req, res) {
   let query = req.query.queryStr;
