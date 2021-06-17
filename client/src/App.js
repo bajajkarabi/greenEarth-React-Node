@@ -72,6 +72,9 @@ class App extends Component {
             />
           ))}
         </Map>
+        <BrowserRouter>
+            <Route exact path="/" component={App} />
+        </BrowserRouter>
       </>
     );
   }
