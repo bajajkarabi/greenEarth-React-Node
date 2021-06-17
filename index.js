@@ -1,10 +1,18 @@
 const express = require("express");
 const axios = require('axios');
-
+const cors = require('cors');
 
 app = express();
 app.use(express.json());
 
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header(
+        'Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content-Type, Accept'
+    );
+    next();
+});
 
 var objectStore = require('./objectStorage');
 const { stat } = require("fs");
@@ -97,11 +105,11 @@ app.get('/Hello/:lat/:lon', function (req, res) {
 
 app.get('/:lat/:lon', function (req, res) {
 
-    let location = 'latitude : '+req.params.lat +'longitude : '+ req.params.lon;
+    let location = 'latitude : ' + req.params.lat + 'longitude : ' + req.params.lon;
     console.log(location);
 
-    let AQI_URL = 'http://api.openweathermap.org/data/2.5/air_pollution?lon=' +  req.params.lon + '&lat=' + req.params.lat + '&appid=10c584214fe0d93a45fbc65300db142a';
-    let PYTHON_API = 'https://hackathon-2021-greenearth.herokuapp.com/'+location
+    let AQI_URL = 'http://api.openweathermap.org/data/2.5/air_pollution?lon=' + req.params.lon + '&lat=' + req.params.lat + '&appid=10c584214fe0d93a45fbc65300db142a';
+    let PYTHON_API = 'https://hackathon-2021-greenearth.herokuapp.com/' + location
 
     sendGetRequest(AQI_URL).then(function (jsonData) {
         console.log("[sendGetRequest] response ", jsonData);

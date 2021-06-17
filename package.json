@@ -1,15 +1,12 @@
 {
-  "name": "server",
+  "name": "greenearth-node-react",
   "version": "1.0.0",
-  "description": "",
-  "proxy": "http://localhost:5678/",
-  "main": "server.js",
+  "description": "Hackathon 2021 final code",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "Server": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npx nodemon index.js\" \"npm run client\""
+    "dev": "concurrently \"npx node index.js\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
@@ -20,5 +17,12 @@
     "fs": "0.0.1-security",
     "ibm-cos-sdk": "^1.10.0",
     "navigator": "^1.0.1"
+  },
+  "repository": {
+    "type": "gitHub",
+    "url": "https://github.com/bajajkarabi/greenEarth-React-Node"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
