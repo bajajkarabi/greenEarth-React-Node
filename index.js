@@ -19,11 +19,6 @@ app.use(function (req, res, next) {
 
 var objectStore = require('./objectStorage');
 
-/******************************************/
-
-let port = process.env.PORT || 9000;
-app.listen(port);
-console.log('listening on ' + port);
 
 app.use(cors());
 const corsOptions = {
@@ -37,9 +32,9 @@ const corsOptions = {
 function process(jsonData) {
 
     return new Promise(function (resolve, reject) {
-       
+
         let csvData = JSON.stringify(jsonData);
- 
+
         objectStore.uploadCSV(csvData).then(function (status) {
             return resolve(status);
         }).catch(function (error) {
@@ -81,14 +76,14 @@ app.get('/:lat/:lon', cors(corsOptions), function (req, res) {
     let location = 'latitude : ' + req.params.lat + 'longitude : ' + req.params.lon;
     console.log(location);
 
-    let AQI_URL = 'http://api.openweathermap.org/data/2.5/air_pollution?lon=' + req.params.lon + '&lat=' + req.params.lat + '&appid='+configFile.API_KEY;
-    
+    let AQI_URL = 'http://api.openweathermap.org/data/2.5/air_pollution?lon=' + req.params.lon + '&lat=' + req.params.lat + '&appid=' + configFile.API_KEY;
+
     sendGetRequest(AQI_URL).then(function (jsonData) {
         console.log("[sendGetRequest] response ", jsonData);
         process(jsonData).then(function (isFileUploaded) {
             console.log("isFileUploaded ? ", isFileUploaded);
             if (isFileUploaded)
-                res.redirect(configFile.PYTHON_API_URL+location);
+                res.redirect(configFile.PYTHON_API_URL + location);
             else res.send({ "Status": "Failed" });
         });
     }).catch(function (error) {
@@ -96,3 +91,19 @@ app.get('/:lat/:lon', cors(corsOptions), function (req, res) {
         res.send({ "Status": "Failed" });
     });
 });
+
+if (process.env.NODE_ENV === 'production') {
+    //Express will server prod asset..
+    app.use(express.static('client/build'));
+    //express will serve up the app.js file if it does not recon the route
+    const path = require('path');
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
+
+/******************************************/
+
+let port = process.env.PORT || 9000;
+app.listen(port);
+console.log('listening on ' + port);
