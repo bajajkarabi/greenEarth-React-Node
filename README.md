@@ -36,9 +36,13 @@ The idea is to use IoT integration to pull the air quality index through connect
 ## Long description
 
 
+
+
 ## Project roadmap
 
-- The main objective of this project is to determine the air pollution depending on the air quality index for any geographical location.
+![Roadmap](./images/roadmap.png)
+
+- The main objective of this project is to determine the air pollution depending on the air quality index for any geographical location.  
 
 - After identifying the air pollution for particular location, we can state remedies to reduce the same.
 
@@ -47,14 +51,14 @@ The idea is to use IoT integration to pull the air quality index through connect
 ## Approach : 
 
 - (Open-Source ) Technologies Used :
-# Middleware
+### Middleware
 	NodeJS 
 	Python 
-# Data Storage
+### Data Storage
 	Object Storage (s3)
-# Machine Learning analysis
+### Machine Learning analysis
 	Python
-# Deployment
+### Deployment
 	Heroku  
 
 ## Node JS Modules used :
