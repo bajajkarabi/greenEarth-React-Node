@@ -29,13 +29,16 @@ class Landing extends Component {
     console.log(lat);
     console.log(lng);
     let url = `https://api.openweathermap.org/data/2.5/air_pollution?lon=${lng}&lat=${lat}&appid=${appid}`;
-    axios.get(url).then((res) => {
+    // axios.get(url).then((res) => {
+    fetch(url).then((res) => {
       console.log(res.data);
-      axios.post(serverUrl, res.data).then((response) => {
+      axios.post('/aqi', res.data).then((response) => {
         console.log('Res delegated', res.data);
         console.log('Response From Node Server', response);
       });
     });
+
+    // });
 
     this.setState((previousState) => {
       return {

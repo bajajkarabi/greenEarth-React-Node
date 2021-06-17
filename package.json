@@ -1,16 +1,13 @@
 {
-  "name": "server",
+  "name": "greenearth-node-react",
   "version": "1.0.0",
-  "description": "",
-  "proxy": "http://localhost:5678/",
+  "description": "Hackathon 2021 final code",
   "main": "server.js",
   "scripts": {
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "start": "node server.js",
-    "Server": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npx nodemon index.js\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "dev": "concurrently \"npx node server.js\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
@@ -19,7 +16,14 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
-    "navigator": "^1.0.1",
-    "path": "^0.12.7"
+    "ibm-cos-sdk": "^1.10.0",
+    "navigator": "^1.0.1"
+  },
+  "repository": {
+    "type": "gitHub",
+    "url": "https://github.com/bajajkarabi/greenEarth-React-Node"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
