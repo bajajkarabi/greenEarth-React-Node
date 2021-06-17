@@ -13,7 +13,7 @@ ReactDOM.render(
   <Router>
     <Link to="/"></Link>
     <Switch>
-    <Route path="/about">
+    <Route path="/">
             <App />
     </Route>
     </Switch>
