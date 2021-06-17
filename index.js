@@ -27,19 +27,19 @@ app.listen(port);
 function process(jsonData) {
 
     return new Promise(function (resolve, reject) {
-     //parse JSON data and populate the csv format 
+        //parse JSON data and populate the csv format 
 
 
 
-    let csvData = JSON.stringify(jsonData); 
-    objectStore.uploadCSV(csvData).then(function(status){
-        return resolve(status);
-    }).catch(function (error) {
-        console.log("[process] Failed due to => ", error);
-        return reject(error) ; 
+        let csvData = JSON.stringify(jsonData);
+        objectStore.uploadCSV(csvData).then(function (status) {
+            return resolve(status);
+        }).catch(function (error) {
+            console.log("[process] Failed due to => ", error);
+            return reject(error);
+        });
+
     });
-
-});
 
 }
 
@@ -83,27 +83,36 @@ function getAPIResponse(url) {
 
 }
 
+app.get('/Hello/:lat/:lon', function (req, res) {
+
+    let latitude = req.params.lat;
+    let longitude = req.params.lon;
+    console.log(latitude, longitude);
+    var AQI_URL = 'http://api.openweathermap.org/data/2.5/air_pollution?lon=' + longitude + '&lat=' + latitude + '&appid=10c584214fe0d93a45fbc65300db142a';
+    console.log(AQI_URL);
+    res.send(AQI_URL);
+});
 
 
 
+app.get('/:lat/:lon', function (req, res) {
 
-app.get('/', function (req, res) {
+    let location = 'latitude : '+req.params.lat +'longitude : '+ req.params.lon;
+    console.log(location);
 
+    let AQI_URL = 'http://api.openweathermap.org/data/2.5/air_pollution?lon=' +  req.params.lon + '&lat=' + req.params.lat + '&appid=10c584214fe0d93a45fbc65300db142a';
+    let PYTHON_API = 'https://hackathon-2021-greenearth.herokuapp.com/'+location
 
-    var AQI_URL  = 'http://api.openweathermap.org/data/2.5/air_pollution?lon=8.2275&lat=46.8182&appid=10c584214fe0d93a45fbc65300db142a';
-    var PYTHON_API = 'https://hackathon-2021-greenearth.herokuapp.com/Mumbai'
-
-
-    let isFileUploaded = false ; 
-    sendGetRequest(AQI_URL).then(function(jsonData){
+    sendGetRequest(AQI_URL).then(function (jsonData) {
         console.log("[sendGetRequest] response ", jsonData);
-         process(jsonData).then(function(isFileUploaded){
+        process(jsonData).then(function (isFileUploaded) {
             console.log("isFileUploaded ? ", isFileUploaded);
-            if(isFileUploaded)
-            res.redirect(PYTHON_API);
-         });
-     }).catch(function (error) {
+            if (isFileUploaded)
+                res.redirect(PYTHON_API);
+            else res.send({ "Status": "Failed" });
+        });
+    }).catch(function (error) {
         console.log("[sendGetRequest] Err due to :::", error);
-        res.send({"Status" : "Failed"});
+        res.send({ "Status": "Failed" });
     });
 });
