@@ -1,26 +1,24 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component, ReactRedirect, Route } from 'react';
+import { Redirect } from 'react-router-dom'
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 class Landing extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      resData: [],
+      redirect: null,
       markers: [
         {
           title: 'The marker`s title will appear as a tooltip.',
           name: 'Mumbai',
-          position: { lat: 19.076, lng: 72.8777 },
+          position: { lat: 19.0760, lng: 72.8777 },
         },
       ],
     };
     this.onClick = this.onClick.bind(this);
-
-    // this.getMaxId = this.getMaxId.bind(this);
-    // this.getData = this.getData.bind(this);
   }
 
+  
   onClick(t, map, coord) {
     //const histData = JSON.parse(jData);
 
@@ -30,35 +28,44 @@ class Landing extends Component {
 
     console.log(lat);
     console.log(lng);
-    let url = `https://greenearth-node.herokuapp.com/` + lat + `/` + lng;
-    console.log('URL : ', url);
 
-    axios.get(url).then((res) => {
-      console.log('Body From Node Server', res.body);
-      console.log('Response Data From Node Server', res.data);
-      this.setState({ resData: res.data });
-    });
+    let path = `/` + lat + `/` + lng;
 
-    this.setState((previousState) => {
-      return {
-        markers: [
-          ...previousState.markers,
-          {
-            title: '',
-            name: '',
-            position: { lat, lng },
-          },
-        ],
-      };
-    });
+    console.log("PATH : ", path);
+
+    this.setState({ redirect: path });
+
+    // axios.get(url).then((res) => {
+    //     console.log('Response From Node Server', res);
+    //   });
+
+    // this.setState((previousState) => {
+
+      // return {
+      //   redirect: "www.google.com" ,
+      //   markers: [
+      //     ...previousState.markers,
+      //     {
+      //       title: '',
+      //       name: '',
+      //       position: { lat, lng },
+      //     },
+      //   ],
+      // };
+    //});
   }
 
   render() {
+
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />
+    }
+
     return (
       <>
         <Map
           google={this.props.google}
-          style={{ position: 'absolute', width: '100%', height: '80%' }}
+          style={{ position: 'absolute', width: '100%', height: '100%' }}
           className={'map'}
           zoom={14}
           onClick={this.onClick}
@@ -72,7 +79,6 @@ class Landing extends Component {
             />
           ))}
         </Map>
-        <div>this.state.resData</div>
       </>
     );
   }
