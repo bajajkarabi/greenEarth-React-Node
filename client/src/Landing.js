@@ -85,5 +85,5 @@ class Landing extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyAJauOQ-9IzgCRFTz-GNaMSVIxs1NgZRII',
+  apiKey: <Your_GMAP_API_KEY>,
 })(Landing);
