@@ -84,15 +84,15 @@ Fetching the pollution index from various geolocations using react and then pass
 
 ## Getting started
 
+ [greenearth-app](https://greenearth-node.herokuapp.com/)
+
 - We have used 3 different services that are running in 3 different ports in Local. React App is running on the server 3000, Express is running on 9000. 
 
 - You have to install the Express and react packages in local/node_modules, for this you need to do npm i in both the locations where express side of code is residing with package.json and inside client directory where react side of the code is residing.
 
-- Once You have installed the packages you have to use your own Google Api key for [Map](#https://www.google.com/maps) and also for [open-weather](#openweather.org)
+- Once You have installed the packages you have to use your own Google Api key for [Map](https://www.google.com/maps) and also for [open-weather](openweather.org)
 
-- once you have enabled the API KEYS, do npm start in both express and React location.
-
-- [greenearth-app](https://greenearth-node.herokuapp.com/)
+- Once you have enabled the API KEYS, do npm start in both express and React location.
 
 ## Authors
 - **Karabi Bajaj**  - bajaj.karabi@in.ibm.com
