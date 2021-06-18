@@ -67,10 +67,10 @@ The idea is to use IoT integration to pull the air quality index through cloud s
 
 ## Node JS Modules used 
 
-  - "axios": "^0.21.1",
-  - "cors": "^2.8.5",
-  - "express": "^4.17.1",
-  - "fs": "0.0.1-security",
+  - "axios": "^0.21.1"
+  - "cors": "^2.8.5"
+  - "express": "^4.17.1"
+  - "fs": "0.0.1-security"
   - "ibm-cos-sdk": "^1.10.0"
 
 ## Python Modules used 
