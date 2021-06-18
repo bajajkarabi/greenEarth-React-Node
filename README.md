@@ -21,7 +21,8 @@
 
 ### What's the problem?
 
-Air pollution refers to the release of pollutants into the air that are detrimental to human health and the planet as a whole. Around the world, nine out of 10 people breathe unhealthy air. Air pollution is now the biggest environmental risk for early death, responsible for more than 6 million premature deaths each year from heart attacks, strokes, diabetes and respiratory diseases. That’s more than the deaths from AIDS, tuberculosis and malaria combined.Research suggests that long term exposure to some pollutants increases the risk of emphysema more than smoking a pack of cigarettes a day. And recent studies show air pollution can impact mental health, worker productivity and even stock market performance.
+Air pollution refers to the release of pollutants into the air that are detrimental to human health and the planet as a whole. Around the world, nine out of 10 people breathe unhealthy air. Air pollution is now the biggest environmental risk for early death, responsible for more than 6 million premature deaths each year from heart attacks, strokes, diabetes and respiratory diseases. That’s more than the deaths from AIDS, tuberculosis and malaria combined.Research suggests that long term exposure to some pollutants increases the risk of emphysema more than smoking a pack of cigarettes a day. And recent studies show air pollution can impact mental health, worker productivity and even stock market performance. Long term air pollution also affects environment causing
+Global Warming, climate change, acid rain, smog effect, deterioration of fields and buildings, extinction of animal species and more.
 
 ### How can technology help?
 
@@ -112,6 +113,8 @@ Fetching the pollution index from various geolocations using react and then pass
 
 - Once you have enabled the API KEYS, do npm start in both express and React location.
 
+- Use IBM credentials to access Object Storage.
+
 ## Authors
 - **Karabi Bajaj**  - bajaj.karabi@in.ibm.com
 - **Arnab Chaterjee**  - arnacha1@in.ibm.com
@@ -128,3 +131,4 @@ Fetching the pollution index from various geolocations using react and then pass
 - [Heroku](https://www.heroku.com/)
 - [nodejs](https://nodejs.org/)
 - [Google cloud API](https://cloud.google.com/apis)
+- [IBM Cloud Storage](https://www.ibm.com/in-en/cloud/storage?p1=Search&p4=43700052660314989&p5=e&gclsrc=aw.ds&gclid=CjwKCAjwiLGGBhAqEiwAgq3q_oI1G81j_S7LvNgNHK1nkEfjtBv-IXvOo9F0fs6jX7ffWI9f6bzHFBoCkkAQAvD_BwE)
