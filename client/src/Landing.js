@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component, ReactRedirect, Route } from 'react';
+import { Redirect } from 'react-router-dom'
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 class Landing extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      redirect: null,
       markers: [
         {
           title: 'The marker`s title will appear as a tooltip.',
@@ -15,40 +16,51 @@ class Landing extends Component {
       ],
     };
     this.onClick = this.onClick.bind(this);
-    // this.getMaxId = this.getMaxId.bind(this);
-    // this.getData = this.getData.bind(this);
   }
 
+  
   onClick(t, map, coord) {
     //const histData = JSON.parse(jData);
-   
+
     const { latLng } = coord;
     const lat = latLng.lat();
     const lng = latLng.lng();
-    
+
     console.log(lat);
     console.log(lng);
-    let url = `https://greenearth-node.herokuapp.com/`+lat+`/`+lng;
-    console.log("URL : ", url);
-    axios.get(url).then((res) => {
-        console.log('Response From Node Server', res.body);
-      });
 
-    this.setState((previousState) => {
-      return {
-        markers: [
-          ...previousState.markers,
-          {
-            title: '',
-            name: '',
-            position: { lat, lng },
-          },
-        ],
-      };
-    });
+    let path = `/` + lat + `/` + lng;
+
+    console.log("PATH : ", path);
+
+    this.setState({ redirect: path });
+
+    // axios.get(url).then((res) => {
+    //     console.log('Response From Node Server', res);
+    //   });
+
+    // this.setState((previousState) => {
+
+      // return {
+      //   redirect: "www.google.com" ,
+      //   markers: [
+      //     ...previousState.markers,
+      //     {
+      //       title: '',
+      //       name: '',
+      //       position: { lat, lng },
+      //     },
+      //   ],
+      // };
+    //});
   }
 
   render() {
+
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />
+    }
+
     return (
       <>
         <Map

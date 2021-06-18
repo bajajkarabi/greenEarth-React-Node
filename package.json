@@ -17,7 +17,8 @@
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "ibm-cos-sdk": "^1.10.0",
-    "navigator": "^1.0.1"
+    "navigator": "^1.0.1",
+    "request": "^2.88.2"
   },
   "repository": {
     "type": "gitHub",
