@@ -119,8 +119,8 @@ Fetching the pollution index from various geolocations using react and then pass
 
 ## Authors
 - **Karabi Bajaj**  - bajaj.karabi@in.ibm.com
-- **Arnab Chaterjee**  - arnacha1@in.ibm.com
-- **Sudipto Dasgupta** - sudidasg@in.ibm.com
+- **Arnab Chatterjee**  - arnacha1@in.ibm.com
+- **Sudipta Dasgupta** - sudidasg@in.ibm.com
 - **Deepanwita Datta** - deepadat@in.ibm.com
 - **Sudeshna Seal** - sudeseal@in.ibm.com
 - **Sayantani Nath** - sayantani_nath@in.ibm.com
