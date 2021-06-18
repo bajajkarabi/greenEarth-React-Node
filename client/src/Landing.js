@@ -56,7 +56,7 @@ class Landing extends Component {
       <>
         <Map
           google={this.props.google}
-          style={{ position: 'absolute', width: '100%', height: '80%' }}
+          style={{ position: 'absolute', width: '100%', height: '100%' }}
           className={'map'}
           zoom={14}
           onClick={this.onClick}
