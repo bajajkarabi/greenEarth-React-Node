@@ -1,20 +1,22 @@
 ### CONTENTS
 
-- [Project name](#submission-or-project-name)
-  - [Contents](#contents)
+- [Project name](#project-name)
+- [Contents](#contents)
   - [Short description](#short-description)
     - [What's the problem?](#whats-the-problem)
     - [How can technology help?](#how-can-technology-help)
     - [The idea](#the-idea)
   - [The architecture](#the-architecture)
   - [Long description](#long-description)
+  - [Demo video](#demo-video)
   - [Project roadmap](#project-roadmap)
   - [Approach](#approach)
   - [Integration](#integration)
   - [Getting started](#getting-started)
-  - [Suggestions](#suggestions)
   - [Authors](#authors)
   - [Acknowledgments](#acknowledgments)
+
+# GREEN EARTH  
 
 ## Short description
 
@@ -24,7 +26,7 @@ Air pollution refers to the release of pollutants into the air that are detrimen
 
 ### How can technology help?
 
-Technology will help us to analyse and determine the problem factors and provide solutions to combat them. Some of these are - Automotives, Air Purification, Smog Free Towers, Artificial Trees, Air Purifiers etc.
+
 
 ### The idea
 The idea is to use IoT integration to pull the air quality index through cloud service functions and store them in cloud storage for current and future data analysis. Cognitive devices will read these data and based on that we can device technologies to create a healthier society for tomorrow.
@@ -51,6 +53,8 @@ The idea is to use IoT integration to pull the air quality index through cloud s
 ## Approach : 
 
 - (Open-Source ) Technologies Used :
+### Front End
+	React
 ### Middleware
 	NodeJS 
 	Python 
@@ -62,6 +66,12 @@ The idea is to use IoT integration to pull the air quality index through cloud s
 	Heroku  
 
 ## Node JS Modules used :
+  "axios": "^0.21.1",
+  "cors": "^2.8.5",
+  "express": "^4.17.1",
+  "fs": "0.0.1-security",
+  "ibm-cos-sdk": "^1.10.0"
+
 ## Python Modules used :
 ​
 ## Microservices Details :
@@ -69,23 +79,23 @@ The idea is to use IoT integration to pull the air quality index through cloud s
 2. Python
 ​
 ## Integration
-<TODO> 
 
-
+Fetching the pollution index from various geolocations using react and then passing it to express. The data is then written into csv and is stored in IBM cloud. Then using python integration the metrics is displayed in a graphical manner. 
 
 ## Getting started
 
 <In this section you add the instructions to run your project on your local machine for development and testing purposes. You can also add instructions on how to deploy the project in production>
 
-- [react-app](./https://github.com/bajajkarabi/greenEarth-React-Node)
+- [greenearth-app](https://greenearth-node.herokuapp.com/)
 
-## Suggestions on how to take the idea in other directions: 
-<todo>
 
 ## Authors
-- **Karabi Bajaj**  - https://github.com/bajajkarabi
-- **Arnab Chaterjee**  - https://github.com/arnabchat123
-- **Sudipto Dasgupta** 
+- **Karabi Bajaj**  - bajaj.karabi@in.ibm.com
+- **Arnab Chaterjee**  - arnacha1@in.ibm.com
+- **Sudipto Dasgupta** - sudidasg@in.ibm.com
+- **Deepanwita Datta** - deepadat@in.ibm.com
+- **Sudeshna Seal** - sudeseal@in.ibm.com
+- **Sayantani Nath** - sayantani_nath@in.ibm.com
 
 ## Acknowledgments
 
