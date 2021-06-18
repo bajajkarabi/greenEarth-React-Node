@@ -90,7 +90,7 @@ Fetching the pollution index from various geolocations using react and then pass
 
 - You have to install the Express and react packages in local/node_modules, for this you need to do npm i in both the locations where express side of code is residing with package.json and inside client directory where react side of the code is residing.
 
-- Once You have installed the packages you have to use your own Google Api key for [Map](https://www.google.com/maps) and also for [open-weather](openweather.org)
+- Once You have installed the packages you have to use your own Google Api key for [Map](https://www.google.com/maps) and also for [open-weather](https://openweathermap.org/)
 
 - Once you have enabled the API KEYS, do npm start in both express and React location.
 
