@@ -5,7 +5,11 @@ const cors = require('cors');
 
 const fs = require('fs');
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: '*',
+  })
+);
 
 //import config
 const configFile = require('./config.json');

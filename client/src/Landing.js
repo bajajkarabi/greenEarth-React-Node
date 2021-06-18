@@ -13,14 +13,12 @@ class Landing extends Component {
           position: { lat: 19.076, lng: 72.8777 },
         },
       ],
-      responseData = '' ;
     };
     this.onClick = this.onClick.bind(this);
-    
+
     // this.getMaxId = this.getMaxId.bind(this);
     // this.getData = this.getData.bind(this);
   }
-
 
   onClick(t, map, coord) {
     //const histData = JSON.parse(jData);
@@ -34,12 +32,10 @@ class Landing extends Component {
     let url = `https://greenearth-node.herokuapp.com/` + lat + `/` + lng;
     console.log('URL : ', url);
 
-    const resData = () => {
-      axios.get(url).then((res) => {
-        console.log('Response From Node Server', res.data);
-        setResponseData = res.data;
-      });
-    };
+    axios.get(url).then((res) => {
+      console.log('Body From Node Server', res.body);
+      console.log('Response Data From Node Server', res.data);
+    });
 
     this.setState((previousState) => {
       return {
@@ -74,8 +70,6 @@ class Landing extends Component {
             />
           ))}
         </Map>
-        <div>{resData()}</div>
-        
       </>
     );
   }
