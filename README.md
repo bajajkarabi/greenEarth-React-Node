@@ -41,7 +41,7 @@ The idea is to use IoT integration to pull the air quality index through cloud s
 
 ## Demo video
 
-[![Watch the video](https://github.com/bajajkarabi/greenEarth-React-Node/blob/main/images/greenearth_demo.png)](https://www.loom.com/share/2c3ac212494c4bc0b3ac61ec3681cdb2)
+[![Watch the video](https://github.com/bajajkarabi/greenEarth-React-Node/blob/main/images/greenearth_demo.png)](https://youtu.be/VxLl-Y3RwWI)
 
 ## Project roadmap
 
