@@ -1,7 +1,6 @@
 ### CONTENTS
 
 - [Project name](#project-name)
-- [Contents](#contents)
   - [Short description](#short-description)
     - [What's the problem?](#whats-the-problem)
     - [How can technology help?](#how-can-technology-help)
@@ -50,7 +49,7 @@ The idea is to use IoT integration to pull the air quality index through cloud s
 
 - Identifying greeneries of any geographical locations and thus determining requirement of plantation of trees.
 
-## Approach : 
+## Approach  
 
 - (Open-Source ) Technologies Used :
 ### Front End
@@ -65,16 +64,16 @@ The idea is to use IoT integration to pull the air quality index through cloud s
 ### Deployment
 	Heroku  
 
-## Node JS Modules used :
+## Node JS Modules used 
   "axios": "^0.21.1",
   "cors": "^2.8.5",
   "express": "^4.17.1",
   "fs": "0.0.1-security",
   "ibm-cos-sdk": "^1.10.0"
 
-## Python Modules used :
+## Python Modules used 
 ​
-## Microservices Details :
+## Microservices Details 
 1. Node JS 
 2. Python
 ​
