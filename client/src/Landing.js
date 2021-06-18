@@ -6,6 +6,7 @@ class Landing extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      resData: [],
       markers: [
         {
           title: 'The marker`s title will appear as a tooltip.',
@@ -35,6 +36,7 @@ class Landing extends Component {
     axios.get(url).then((res) => {
       console.log('Body From Node Server', res.body);
       console.log('Response Data From Node Server', res.data);
+      this.setState({ resData: res.data });
     });
 
     this.setState((previousState) => {
@@ -56,7 +58,7 @@ class Landing extends Component {
       <>
         <Map
           google={this.props.google}
-          style={{ position: 'absolute', width: '100%', height: '100%' }}
+          style={{ position: 'absolute', width: '100%', height: '80%' }}
           className={'map'}
           zoom={14}
           onClick={this.onClick}
@@ -70,6 +72,7 @@ class Landing extends Component {
             />
           ))}
         </Map>
+        <div>this.state.resData</div>
       </>
     );
   }
