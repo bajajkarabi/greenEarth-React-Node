@@ -36,8 +36,7 @@ The idea is to use IoT integration to pull the air quality index through cloud s
 
 ## Long description
 
-
-
+[More detail is available here](./docs/DESCRIPTION.md)
 
 ## Project roadmap
 
@@ -83,7 +82,7 @@ Fetching the pollution index from various geolocations using react and then pass
 
 ## Getting started
 
-<In this section you add the instructions to run your project on your local machine for development and testing purposes. You can also add instructions on how to deploy the project in production>
+We have used 3 different services that are running in 3 different ports in Local. React App is running on the server 3000, Express is running on 9000. 
 
 - [greenearth-app](https://greenearth-node.herokuapp.com/)
 
