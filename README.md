@@ -36,7 +36,7 @@ The idea is to use IoT integration to pull the air quality index through cloud s
 
 ## Long description
 
-[More detail is available here](./docs/DESCRIPTION.md)
+[More detail is available here](./docs/Description.md)
 
 ## Project roadmap
 
