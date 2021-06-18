@@ -1,6 +1,7 @@
 {
   "BUCKET_NAME": "wit-hackathon-2021",
-  "FILE_NAME": "input1.csv",
+  "FILE_NAME": "input.csv",
+  "FILE_PATH" : "./output.csv",
   "API_KEY": "10c584214fe0d93a45fbc65300db142a",
   "PYTHON_API_URL": "https://hackathon-2021-greenearth.herokuapp.com/",
   "endpoint": "s3.jp-tok.cloud-object-storage.appdomain.cloud",
