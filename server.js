@@ -2,24 +2,12 @@
 const configFile = require('./config.json');
 var objectStore = require('./objectStorage');
 
-const path = './images/image.png'
-
 //import npm moduels 
 const axios = require('axios');
 const express = require('express');
-const fs = require('fs');
-const Path = require('path');
-const request = require('request');
-const cors = require('cors');
+
 
 const app = express();
-
-var corsOptions = {
-  origin: 'https://hackathon-2021-greenearth.herokuapp.com',
-  optionsSuccessStatus: 200,
-  methods: "GET, PUT"
-}
-app.use(cors(corsOptions));
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -45,6 +33,10 @@ app.get('/:lat/:lon', function (req, res) {
   console.log(location);
 
   let AQI_URL = 'http://api.openweathermap.org/data/2.5/air_pollution?lon=' + req.params.lon + '&lat=' + req.params.lat + '&appid=' + configFile.API_KEY;
+  let pythonURl = configFile.PYTHON_API_URL + location
+
+  console.log(pythonURl);
+
   axios.get(AQI_URL).then(function (responseData) {
 
     let jsonData = JSON.stringify(responseData.data);
@@ -55,39 +47,43 @@ app.get('/:lat/:lon', function (req, res) {
     if (!airPullutants || airPullutants.list.length < 1)
       res.send({ "Status": "AQI Not Found" });
 
-    let airPullutantList = airPullutants.list[0].components;
+    airPullutants = airPullutants.list[0].components;
 
-    console.log(Object.entries(airPullutantList))
-    var csvData = ['COMPONENT_NAME', 'AMOUNT',
-      ['CO', airPullutantList.co],
-      ['NO', airPullutantList.no],
-      ['NO2', airPullutantList.no2],
-      ['O3', airPullutantList.o3],
-      ['SO2', airPullutantList.so2],
-      ['PM2_5', airPullutantList.pm2_5],
-      ['PM10', airPullutantList.pm10],
-      ['NH3', airPullutantList.nh3],
+    var records = [
+      ['CO', airPullutants.co, ''],
+      ['NO', airPullutants.no, ''],
+      ['NO2', airPullutants.no2, ''],
+      ['O3', airPullutants.o3, ''],
+      ['SO2', airPullutants.so2, ''],
+      ['PM2_5', airPullutants.pm2_5, ''],
+      ['PM10', airPullutants.pm10, ''],
+      ['NH3', airPullutants.nh3, ''],
     ];
 
-    objectStore.uploadCSV(JSON.stringify(csvData)).then(function (isFileUploaded) {
-      let pythonURl = configFile.PYTHON_API_URL + location
-
-      console.log(pythonURl);
-      const path = Path.resolve(__dirname, 'images', 'code.jpg')
-      const writer = fs.createWriteStream(path)
-
-      if (isFileUploaded) {
-
-        setTimeout(function(){
-          console.log("Waiting ");
-          res.redirect(pythonURl);
-        }, 1500);
-        
-      } else res.send({ "Status": "Upload Failed" });
-    }).catch(function (error) {
-      console.log("[process] Failed due to => ", error);
-      return reject(error);
+    const createCsvWriter = require('csv-writer').createArrayCsvWriter;
+    let csvWriter = createCsvWriter({
+      header: ['COMPONENT_NAME', 'AMOUNT', ,],
+      path: './output.csv',
     });
+
+    csvWriter
+      .writeRecords(records) // returns a promise
+      .then(() => {
+        objectStore.uploadFile().then(function (isFileUploaded) {
+
+          if (isFileUploaded) {
+            setTimeout(function () {
+              console.log("Waiting ");
+              res.redirect(pythonURl);
+            }, 1500);
+
+          } else res.send({ "Status": "Upload Failed" });
+        });
+
+      }).catch(function (error) {
+        console.log("[process] Failed due to => ", error);
+        return reject(error);
+      });
   }).catch(function (error) {
     console.log("[sendGetRequest] Err due to :::", error);
     res.send({ "Status": "Failed" });
