@@ -9,7 +9,7 @@ class Landing extends Component {
       redirect: null,
       markers: [
         {
-          title: 'The marker`s title will appear as a tooltip.',
+          title: 'greenEarth',
           name: 'Mumbai',
           position: { lat: 19.0760, lng: 72.8777 },
         },
@@ -65,9 +65,9 @@ class Landing extends Component {
       <>
         <Map
           google={this.props.google}
-          style={{ position: 'absolute', width: '100%', height: '100%' }}
+          style={{ position: 'relative', width: '100%', height: '100%' }}
           className={'map'}
-          zoom={14}
+          zoom={2}
           onClick={this.onClick}
         >
           {this.state.markers.map((marker, index) => (
