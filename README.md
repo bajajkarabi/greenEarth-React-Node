@@ -41,6 +41,8 @@ The idea is to use IoT integration to pull the air quality index through cloud s
 
 ## Demo video
 
+[[Watch the video](https://www.loom.com/share/61868e62447841798180f628bcb7f8ed)]
+
 ## Project roadmap
 
 ![Roadmap](./images/roadmap.jpg)
