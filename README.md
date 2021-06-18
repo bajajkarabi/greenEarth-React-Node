@@ -67,30 +67,30 @@ The idea is to use IoT integration to pull the air quality index through cloud s
 
 ## Node JS Modules used 
 
-  "axios": "^0.21.1",
-  "cors": "^2.8.5",
-  "express": "^4.17.1",
-  "fs": "0.0.1-security",
-  "ibm-cos-sdk": "^1.10.0"
+  - "axios": "^0.21.1",
+  - "cors": "^2.8.5",
+  - "express": "^4.17.1",
+  - "fs": "0.0.1-security",
+  - "ibm-cos-sdk": "^1.10.0"
 
 ## Python Modules used 
 
-  Click==7.0
-  Flask==1.1.1
-  gunicorn==19.9.0
-  itsdangerous==1.1.0
-  Jinja2==2.10.1
-  MarkupSafe==1.1.1
-  Werkzeug==0.15.6
-  pandas==1.0.1
-  pandas-datareader==0.8.1
-  numpy==1.18.1
-  scikit-image==0.16.2
-  scikit-learn==0.22.1
-  scipy==1.4.1
-  seaborn==0.10.1
-  ibm-cos-sdk == 2.10.0
-  boto3==1.17.9
+ - Click==7.0
+ - Flask==1.1.1
+ - gunicorn==19.9.0
+ - itsdangerous==1.1.0
+ - Jinja2==2.10.1
+ - MarkupSafe==1.1.1
+ - Werkzeug==0.15.6
+ - pandas==1.0.1
+ - pandas-datareader==0.8.1
+ - numpy==1.18.1
+ - scikit-image==0.16.2
+ - scikit-learn==0.22.1
+ - scipy==1.4.1
+ - seaborn==0.10.1
+ - ibm-cos-sdk == 2.10.0
+ - boto3==1.17.9
 ​
 ## Microservices Details 
 1. Node JS 
